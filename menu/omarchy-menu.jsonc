@@ -1,0 +1,111 @@
+{
+  // Extend the Quickshell Omarchy menu with JSONC.
+  //
+  // IDs are object keys. The parent is inferred from the dotted id, so
+  // "personal.notes" appears under "personal", and "personal" appears on the
+  // root menu. Reuse an existing id to override/extend it.
+  //
+  // Fields:
+  //   icon        Nerd Font glyph shown in the icon column.
+  //   label       Visible row title.
+  //   action      Shell command to run. If omitted, the row is a submenu.
+  //   target      Existing submenu id to open. Use for links/aliases.
+  //   provider    Runtime provider function/command returning JSON rows.
+  //   aliases     alternate `omarchy menu summon <name>` routes; also searchable.
+  //   description Optional subtitle and extra search text.
+  //   when        Shell condition; hide row when it fails.
+  //   checked     Shell condition; append ✓ when it succeeds.
+  //
+  // Examples:
+  // "personal": {"icon":"","label":"Personal"},
+  // "personal.notes": {"icon":"󰎞","label":"Notes","action":"omarchy-launch-editor ~/notes"},
+  // "personal.files": {"icon":"","label":"Files","action":"uwsm-app -- nautilus ~/Documents"},
+  //
+  // Only use provider when a provider_name function or command named "name"
+  // returns JSON rows. Static submenus only need dotted ids.
+  //
+  // Example: replace the default About action by reusing the same id. Existing
+  // fields are kept unless overridden.
+  // "about": {"icon":"","label":"About","action":"omarchy-launch-or-focus-tui \"zsh -c 'fastfetch; read -k 1'\""},
+
+  // Machine Mark: replace the default About (fastfetch TUI) with the floating
+  // machine-mark window. Falls back to the stock About when the plugin is
+  // disabled or removed, so the row never goes dead.
+  "about": {
+    "icon": "",
+    "label": "About",
+    "action": "[[ $(omarchy-shell shell summon io.github.erikrjohansson.machine-mark '{}' 2>/dev/null) == ok ]] || omarchy-launch-about"
+  },
+
+  // Virtuoso: notification sound effects toggle (appears under Trigger -> Toggle).
+  "trigger.toggle.notification-sounds": {
+    "icon": "󰓃",
+    "label": "Notification Sounds",
+    "description": "Ocean sound effects for notifications and device hotplug",
+    "action": "omarchy-shell virtuoso.notification-sounds toggle",
+    "checked": "[[ \"$(omarchy-shell virtuoso.notification-sounds isEnabled)\" == \"on\" ]]"
+  },
+
+  "bar": {
+    "icon": "",
+    "label": "Bar"
+  },
+  "bar.settings": {
+    "icon": "",
+    "label": "Open settings panel",
+    "description": "Name, surface, workspace pills — the gear on the bar",
+    "action": "omarchy-shell shell summon virtuoso.settings"
+  },
+  "bar.look": {
+    "icon": "",
+    "label": "Background"
+  },
+  "bar.look.opaque": {
+    "icon": "",
+    "label": "Opaque",
+    "action": "virtuoso-style background opaque",
+    "checked": "[[ \"$(jq -r '.bar.background // \"opaque\"' ~/.config/omarchy/shell.json)\" == \"opaque\" ]]"
+  },
+  "bar.look.glassy": {
+    "icon": "",
+    "label": "Glassy",
+    "description": "Frosted blur behind the bar",
+    "action": "virtuoso-style background glassy",
+    "checked": "[[ \"$(jq -r '.bar.background // \"opaque\"' ~/.config/omarchy/shell.json)\" == \"glassy\" ]]"
+  },
+  "bar.look.none": {
+    "icon": "",
+    "label": "None",
+    "description": "Bar floats clear over the wallpaper",
+    "action": "virtuoso-style background none",
+    "checked": "[[ \"$(jq -r '.bar.background // \"opaque\"' ~/.config/omarchy/shell.json)\" == \"none\" ]]"
+  },
+  "bar.surface": {
+    "icon": "",
+    "label": "Surface style"
+  },
+  "bar.surface.notch": {
+    "icon": "",
+    "label": "Notch",
+    "action": "virtuoso-style notch",
+    "checked": "[[ \"$(jq -r '.bar.virtuoso.style // \"notch\"' ~/.config/omarchy/shell.json)\" == \"notch\" ]]"
+  },
+  "bar.surface.fit": {
+    "icon": "",
+    "label": "Fit",
+    "action": "virtuoso-style fit",
+    "checked": "[[ \"$(jq -r '.bar.virtuoso.style // \"notch\"' ~/.config/omarchy/shell.json)\" == \"fit\" ]]"
+  },
+  "bar.surface.dock": {
+    "icon": "",
+    "label": "Dock",
+    "action": "virtuoso-style dock",
+    "checked": "[[ \"$(jq -r '.bar.virtuoso.style // \"notch\"' ~/.config/omarchy/shell.json)\" == \"dock\" ]]"
+  },
+  "bar.surface.full": {
+    "icon": "",
+    "label": "Full",
+    "action": "virtuoso-style full",
+    "checked": "[[ \"$(jq -r '.bar.virtuoso.style // \"notch\"' ~/.config/omarchy/shell.json)\" == \"full\" ]]"
+  }
+}

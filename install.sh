@@ -56,6 +56,19 @@ for id in $PLUGINS_LIST; do
   ((discovered)) || fail "plugin '$id' was not discovered after rescan"
 done
 
+echo "==> Installing the virtuoso-style CLI (bar looks from the menu and shell)"
+mkdir -p "$HOME/.local/bin"
+cp "$SRC/virtuoso.settings/scripts/virtuoso-style.sh" "$HOME/.local/bin/virtuoso-style"
+chmod +x "$HOME/.local/bin/virtuoso-style"
+
+echo "==> Installing the Bar menu (skipped if you already have one)"
+if [[ -f $HOME/.config/omarchy/extensions/omarchy-menu.jsonc ]]; then
+  echo "    you already have omarchy-menu.jsonc; merge the bar.* rows from $SRC/menu/ if you want them"
+else
+  mkdir -p "$HOME/.config/omarchy/extensions"
+  cp "$SRC/menu/omarchy-menu.jsonc" "$HOME/.config/omarchy/extensions/omarchy-menu.jsonc"
+fi
+
 echo "==> Backing up shell.json"
 backup="$SHELL_JSON.bak.virtuoso.$(date +%s)"
 cp "$SHELL_JSON" "$backup"
