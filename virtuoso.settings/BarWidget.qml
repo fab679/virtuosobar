@@ -100,5 +100,17 @@ BarWidget {
     }
 
     function open(): void { root.open() }
+
+    function debug(): string {
+      var panel = panelLoader.item
+      if (!panel) return "no panel"
+      return JSON.stringify({
+        background: panel.liveBackground,
+        style: panel.liveStyle,
+        pill: panel.livePillStyle,
+        wordmark: panel.liveWordmark
+      })
+    }
   }
 }
+

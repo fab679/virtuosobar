@@ -28,9 +28,11 @@ Ui.Panel {
   // ---- live reads ---------------------------------------------------------
   // Recomputed whenever the host re-injects barConfig, so the panel follows
   // config changes made underneath it (another widget, the CLI, a reload).
+  // The facade's barConfig IS the bar subtree (background, layout, …) — the
+  // same shape the bar itself is handed — not a wrapper around it.
 
   readonly property var liveBarConfig: root.shellReady ? root.shellApi.barConfig : ({})
-  readonly property var barOptions: Util.isPlainObject(liveBarConfig) && Util.isPlainObject(liveBarConfig.bar) ? liveBarConfig.bar : ({})
+  readonly property var barOptions: Util.isPlainObject(liveBarConfig) ? liveBarConfig : ({})
   readonly property var virtuosoOptions: Util.isPlainObject(barOptions.virtuoso) ? barOptions.virtuoso : ({})
 
   readonly property var surfaceStyleChoices: ["notch", "fit", "dock", "full"]
@@ -61,8 +63,8 @@ Ui.Panel {
   // search walks the whole layout so the entry keeps its key wherever it
   // moves; an entry that is not on the bar at all reads as "digits".
   function findModuleEntry(config, moduleId) {
-    var bar = Util.isPlainObject(config) ? config.bar : null
-    var layout = Util.isPlainObject(bar) && Util.isPlainObject(bar.layout) ? bar.layout : null
+    // `config` here is the bar subtree itself: the layout hangs off it.
+    var layout = Util.isPlainObject(config) && Util.isPlainObject(config.layout) ? config.layout : null
     if (!layout) return null
     var sections = ["left", "centerBegin", "center", "centerEnd", "right", "tray"]
 
