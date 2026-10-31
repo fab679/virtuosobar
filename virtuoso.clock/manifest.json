@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.clock",
+  "name": "Virtuoso Clock",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "Seven-segment sci-fi clock with seconds ring. Digits are drawn, not typeset, and everything is theme-colored.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Clock",
+    "description": "Seven-segment sci-fi clock with seconds ring",
+    "category": "Compositor",
+    "defaultSection": "centerBegin",
+    "allowMultiple": false
+  }
+}

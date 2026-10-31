@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.reactor",
+  "name": "Virtuoso Reactor",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "Battery as a reactor core: a 270° charge ring around a breathing dot. Slow pulse on battery, fast on AC, double-blink when low. Everything theme-colored.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Reactor",
+    "description": "Battery as a reactor core with live charge ring",
+    "category": "System",
+    "defaultSection": "right",
+    "allowMultiple": false
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.menu",
+  "name": "Virtuoso Menu",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "VIRTUOSO wordmark button that opens the Omarchy menu. Same actions as the stock menu button.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Menu",
+    "description": "VIRTUOSO wordmark that opens the Omarchy menu",
+    "category": "Compositor",
+    "defaultSection": "left",
+    "allowMultiple": false
+  }
+}

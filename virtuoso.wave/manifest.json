@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.wave",
+  "name": "Virtuoso Wave",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "Spectrum bars plus transport controls. Bars come from cava (install it for the visualizer); transport follows any MPRIS player. Everything theme-colored.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Wave",
+    "description": "Audio spectrum bars with previous/next; click for the full player panel",
+    "category": "Media",
+    "defaultSection": "centerEnd",
+    "allowMultiple": false
+  }
+}

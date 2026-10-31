@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.theme-name",
+  "name": "Virtuoso Theme Name",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "Current theme name in wordmark style. Click to deal the Hearth card deck for themes and wallpapers.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Theme Name",
+    "description": "Current theme name; click to browse themes and wallpapers",
+    "category": "System",
+    "defaultSection": "left",
+    "allowMultiple": false
+  }
+}

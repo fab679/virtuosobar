@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.settings",
+  "name": "Virtuoso Settings",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Settings",
+    "description": "Configure the bar from the bar",
+    "category": "System",
+    "defaultSection": "right",
+    "allowMultiple": false
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.gauges",
+  "name": "Virtuoso Gauges",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "Compact HUD ring gauges for CPU, memory and temperature, polled from /proc and /sys.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Gauges",
+    "description": "HUD ring gauges for CPU, memory and temperature",
+    "category": "System",
+    "defaultSection": "left",
+    "allowMultiple": false
+  }
+}

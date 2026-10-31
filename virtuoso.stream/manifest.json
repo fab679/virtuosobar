@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.stream",
+  "name": "Virtuoso Stream",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "Live network throughput drawn as a small data-stream waveform, with down/up rates in auto units. Polls /proc/net/dev; everything theme-colored.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Stream",
+    "description": "Live network throughput as a data-stream waveform",
+    "category": "System",
+    "defaultSection": "centerEnd",
+    "allowMultiple": false
+  }
+}

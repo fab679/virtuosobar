@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.workspaces",
+  "name": "Virtuoso Workspaces",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "Workspace number indicators with a neon underglow on the shown workspace. Same behavior as the stock widget.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Virtuoso Workspaces",
+    "description": "Workspace indicators with active glow",
+    "category": "Compositor",
+    "defaultSection": "left",
+    "allowMultiple": false
+  }
+}

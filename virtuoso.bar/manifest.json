@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "virtuoso.bar",
+  "name": "VirtuosoBar",
+  "version": "1.0.0",
+  "author": "Virtuoso",
+  "description": "V2-style notch island bar over the stock Omarchy bar: same widgets, panels, and drag-and-drop, with a floating island surface that follows the system theme. Switch back anytime with 'omarchy bar reset'.",
+  "kinds": [
+    "bar"
+  ],
+  "entryPoints": {
+    "bar": "Bar.qml"
+  }
+}
