@@ -125,6 +125,7 @@ back into this repo before pushing — the repo is the source of truth.
 ```bash
 bash tests/test-layout.sh        # layout wiring: idempotent, correct
 bash tests/test-qml-imports.sh   # every referenced shell symbol exists
+bash tests/test-qml-types.sh     # every instantiated type exists on the installed shell
 ```
 
 ## Troubleshooting
